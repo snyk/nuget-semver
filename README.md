@@ -1,9 +1,9 @@
 [![Snyk logo](https://snyk.io/style/asset/logo/snyk-print.svg)](https://snyk.io)
 ***
 
-# maven-semver
+# nuget-semver
 
-A semantic version parser for maven, based on the API of npm's semver.
+A semantic version parser for NuGet (https://docs.microsoft.com/en-us/nuget/reference/package-versioning), based on the API of npm's semver.
 
 ### License
 

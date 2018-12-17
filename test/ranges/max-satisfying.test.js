@@ -7,6 +7,7 @@ import { maxSatisfying } from '../../';
 
 test('maxSatisfying(versions, range)', t => {
   t.is(maxSatisfying(['1.2.3', '1.2.4'], '[1.2,)'), '1.2.4');
+  t.is(maxSatisfying(['1.2.3', '1.2.4'], '1.2'), '1.2.4');
   t.is(maxSatisfying(['1.2.3', '1.2.4', '1.2.5'], '[1.1,1.2.4]'), '1.2.4');
   t.is(maxSatisfying(['1.2.4', '1.2.3'], '(1.2,)'), '1.2.4');
   t.is(maxSatisfying(['1.2.3', '1.2.4', '1.2.5', '1.2.6'],'(1.2.3,)'), '1.2.6');

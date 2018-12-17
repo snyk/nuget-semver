@@ -19,8 +19,5 @@
   },
   "engines": {
     "node": ">=6"
-  },
-  "publishConfig": {
-    "access": "restricted"
   }
 }

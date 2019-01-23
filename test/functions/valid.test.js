@@ -39,4 +39,8 @@ test('valid(v)', t => {
   t.is(valid('1.2ga34-4'), '1.2ga34-4');
 
   t.is(valid('1.2FiNaL34BEtA4'), '1.2FiNaL34BEtA4');
+
+  t.is(valid('*'), '*');
+  t.is(valid('1.*'), '1.*');
+  t.is(valid('1.2.*'), '1.2.*');
 });

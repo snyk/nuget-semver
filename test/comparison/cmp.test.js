@@ -60,3 +60,12 @@ test('cmp(v1, "nonsense", v2)', t => {
   t.throws(() => cmp('2', '!====', '2'), 'Invalid comparator: !====');
   t.throws(() => cmp('2', '>broken', '2'), 'Invalid comparator: >broken');
 });
+
+test('wildcard compare', t => {
+  t.truthy(cmp('*', '==', '2'));
+  t.truthy(cmp('2', '==', '*'));
+  t.truthy(cmp('2.*', '==', '2.0'));
+  t.truthy(cmp('2.0', '==', '2.*'));
+  t.truthy(cmp('2.0.1', '==', '2.0.*'));
+  t.truthy(cmp('2.0.*', '==', '2.0.1'));
+});

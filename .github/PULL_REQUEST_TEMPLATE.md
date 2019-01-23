@@ -1,20 +1,23 @@
-- [ ] Tests written and linted [ℹ︎](https://github.com/snyk/general/wiki/Tests)
-- [ ] Documentation written [ℹ︎](https://github.com/snyk/general/wiki/Documentation)
-- [ ] Commit history is tidy [ℹ︎](https://github.com/snyk/general/wiki/Git)
+- [ ] Ready for review
+- [ ] Follows [CONTRIBUTING](https://github.com/snyk/nuget-semver/blob/master/.github/CONTRIBUTING.md) rules
+- [ ] Reviewed by Snyk internal team
 
-### What this does
+#### What does this PR do?
 
-_Explain why this PR exists_
 
-### Notes for the reviewer
+#### Where should the reviewer start?
 
-_Instructions on how to run this locally, background context, what to review, questions…_
 
-### More information
+#### How should this be manually tested?
 
-- [Jira ticket SC-0000](https://snyksec.atlassian.net/browse/SC-0000)
-- [Link to documentation](https://github.com/Snyk/registry/wiki/)
 
-### Screenshots
+#### Any background context you want to provide?
 
-_Visuals that may help the reviewer_
+
+#### What are the relevant tickets?
+
+
+#### Screenshots
+
+
+#### Additional questions

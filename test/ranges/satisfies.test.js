@@ -3,7 +3,7 @@ import test from 'ava';
 import { satisfies } from '../../';
 
 // satisfies(version, range): Return true if the version satisfies the range.
-
+/*
 test('satisfies(version, range) - unbounded range', t => {
   t.true(satisfies('0', '(,)'));
   t.true(satisfies('1', '(,)'));
@@ -73,4 +73,12 @@ test('satisfies(version, range) - final, release', t => {
   t.true(satisfies('2.0', '[,2.0-FINAL]'));
   t.true(satisfies('2', '[,2.0-FINAL]'));
   t.true(satisfies('2.FINAL', '[,2.0-GA]'));
+});*/
+
+test('satisfies(version, range) - wildcard', t => {
+  t.true(satisfies('2.0.1', '*'));
+  t.true(satisfies('2.0.1', '2.*'));
+  t.true(satisfies('2.0.1', '2.0.*'));
+  t.false(satisfies('2.0.1', '2.1.*'));
+  t.false(satisfies('2.0.1', '3.*'));
 });

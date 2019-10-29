@@ -9,7 +9,7 @@
   "author": "snyk.io",
   "license": "Apache-2.0",
   "devDependencies": {
-    "ava": "^0.23.0",
+    "ava": "^2.4.0",
     "eslint": "^6.6.0"
   },
   "repository": {

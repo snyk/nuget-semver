@@ -1,4 +1,5 @@
 sudo: false
+dist: bionic
 language: node_js
 cache:
   directories:
@@ -6,13 +7,13 @@ cache:
 notifications:
   email: false
 node_js:
-  - 8
-  - 6
+  - "10"
+  - "12"
 jobs:
   include:
     - stage: npm release
       if: branch = master AND type != pull_request
-      node_js: '8'
+      node_js: '10'
       script:
         - npx semantic-release
 branches:

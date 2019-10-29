@@ -17,6 +17,6 @@
     "url": "https://github.com/snyk/nuget-semver"
   },
   "engines": {
-    "node": ">=6"
+    "node": ">=10"
   }
 }

@@ -3,21 +3,20 @@
   "description": "A semantic version parser for NuGet (https://docs.microsoft.com/en-us/nuget/reference/package-versioning), based on the API of npm's semver",
   "main": "index.js",
   "scripts": {
-    "lint": "jscs lib/*.js && jshint lib/*.js",
+    "lint": "eslint lib test",
     "test": "npm run lint && ava --verbose"
   },
   "author": "snyk.io",
   "license": "Apache-2.0",
   "devDependencies": {
-    "ava": "^0.23.0",
-    "jscs": "^3.0.7",
-    "jshint": "^2.9.5"
+    "ava": "^2.4.0",
+    "eslint": "^6.6.0"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/snyk/nuget-semver"
   },
   "engines": {
-    "node": ">=6"
+    "node": ">=10"
   }
 }

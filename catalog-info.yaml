@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: nuget-semver
+  annotations:
+    github.com/project-slug: snyk/nuget-semver
+    github.com/team-slug: snyk/os-managed
+spec:
+  type: internal-library
+  lifecycle: "-"
+  owner: os-managed

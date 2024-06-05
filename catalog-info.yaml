@@ -6,6 +6,6 @@ metadata:
     github.com/project-slug: snyk/nuget-semver
     github.com/team-slug: snyk/os-managed
 spec:
-  type: internal-library
+  type: external-library
   lifecycle: "-"
   owner: os-managed

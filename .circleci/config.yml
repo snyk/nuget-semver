@@ -89,6 +89,7 @@ workflows:
       - release:
           name: Release
           context:
+            - nodejs-install
             - github-release
           filters:
             branches:

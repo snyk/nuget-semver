@@ -3,74 +3,60 @@ version: 2.1
 orbs:
   prodsec: snyk/prodsec-orb@1
 
-executors:
-  docker-node:
-    parameters:
-      version:
-        default: "lts"
-        type: string
-    docker:
-      - image: cimg/node:<<parameters.version>>
+defaults: &defaults
+  resource_class: small
+  docker:
+    - image: cimg/node:24.18
 
 commands:
-  install:
+  install_deps:
+    description: Install dependencies
     steps:
       - run:
-          name: Install
+          name: Install dependencies
           command: npm install
-  test:
+  run_test:
     steps:
       - run:
           name: Test
           command: npm test
-  release:
-    steps:
-      - run:
-          name: Release
-          command: npx semantic-release
 
 jobs:
   security-scans:
-    resource_class: small
-    parameters:
-      node-version:
-        type: string
-    executor:
-      name: docker-node
-      version: << parameters.node-version >>
+    <<: *defaults
     steps:
       - checkout
-      - install
+      - install_deps
       - prodsec/security_scans:
           mode: auto
           open-source-additional-arguments: --exclude=test
           iac-scan: disabled
 
   test:
-    resource_class: small
+    <<: *defaults
     parameters:
       node-version:
         type: string
-    executor:
-      name: docker-node
-      version: << parameters.node-version >>
+    docker:
+      - image: cimg/node:<< parameters.node-version >>
     steps:
       - checkout
-      - install
-      - test
+      - install_deps
+      - run_test
 
   release:
-    resource_class: small
-    executor:
-      name: docker-node
+    <<: *defaults
     steps:
       - checkout
-      - install
-      - release
+      - install_deps
+      - run:
+          name: Release
+          command: |
+            export NPM_ID_TOKEN=$(circleci run oidc get --claims '{"aud": "npm:registry.npmjs.org"}')
+            npx semantic-release@25.0.5
 
 workflows:
-  version: 2
-  test:
+  CICD:
     jobs:
       - prodsec/secrets-scan:
           name: Scan repository for secrets
@@ -83,7 +69,6 @@ workflows:
                 - main
       - security-scans:
           name: Security Scans
-          node-version: "16.1.0"
           context:
             - open_source-managed
             - nodejs-install
@@ -96,26 +81,15 @@ workflows:
           context: nodejs-install
           matrix:
             parameters:
-              node-version: ["10.24.1", "12.22.1", "14.16.1", "16.1.0"]
+              node-version: ["22.23", "24.18", "26.4"]
           filters:
             branches:
               ignore:
                 - main
-  release:
-    jobs:
-      - security-scans:
-          name: Security Scans
-          node-version: "16.1.0"
-          context:
-            - open_source-managed
-            - nodejs-install
-          filters:
-            branches:
-              only:
-                - main
       - release:
           name: Release
-          context: nodejs-lib-release
+          context:
+            - github-release
           filters:
             branches:
               only:

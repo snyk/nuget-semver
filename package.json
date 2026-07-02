@@ -14,7 +14,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/snyk/nuget-semver"
+    "url": "https://github.com/snyk/nuget-semver.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "lib"
+  ],
+  "homepage": "https://github.com/snyk/nuget-semver#readme",
+  "bugs": {
+    "url": "https://github.com/snyk/nuget-semver/issues"
   },
   "engines": {
     "node": ">=10"

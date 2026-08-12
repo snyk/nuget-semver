@@ -74,10 +74,6 @@ workflows:
             - open_source-managed
             - nodejs-install
             - prodsec-orb-runtime
-          filters:
-            branches:
-              ignore:
-                - main
       - test:
           name: Test Node << matrix.node-version >>
           context: nodejs-install

@@ -29,6 +29,6 @@
     "url": "https://github.com/snyk/nuget-semver/issues"
   },
   "engines": {
-    "node": ">=10"
+    "node": ">=22"
   }
 }

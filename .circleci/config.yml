@@ -6,7 +6,7 @@ orbs:
 defaults: &defaults
   resource_class: small
   docker:
-    - image: cimg/node:24.18
+    - image: cimg/node:22
 
 commands:
   install_deps:
@@ -79,7 +79,7 @@ workflows:
           context: nodejs-install
           matrix:
             parameters:
-              node-version: ["22.23", "24.18", "26.4"]
+              node-version: ["22", "24", "26"]
           filters:
             branches:
               ignore:

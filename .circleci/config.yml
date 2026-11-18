@@ -14,7 +14,7 @@ commands:
     steps:
       - run:
           name: Install dependencies
-          command: npm install
+          command: npm ci
   run_test:
     steps:
       - run:
